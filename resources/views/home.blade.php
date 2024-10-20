@@ -16,11 +16,23 @@
                     <a href="{{ route('article', $article->slug) }}" class="inline-block mt-4 bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition duration-300 ease-in-out">Читать далее</a>
                 </article>
             @empty
-                <p>Пусто</p>
+                <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+                    <p>Пусто... Ждите выхода статей.</p>
+                </div>
             @endforelse
-
+            
+            <div class="mb-8">
+                {{ $articles->links() }}
+            </div>
         </div>
     </div>
 </main>
 @endsection
  
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    </script>
+@endpush

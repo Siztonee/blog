@@ -10,8 +10,13 @@ class HomeController extends Controller
 {
     public function index(Article $article)
     {
-        return view('home', [
-            'articles' => $article->all()
-        ]);
+        $articles = $article->orderBy('created_at', 'ASC')->paginate(20);
+        $lastPage = $articles->lastPage();
+        
+        if (request()->page === null) {
+            return redirect()->route('home', ['page' => $lastPage]);
+        }
+        
+        return view('home', compact('articles'));
     }
 }

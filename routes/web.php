@@ -25,7 +25,7 @@ Route::middleware([GuestsMiddleware::class])->group(function () {
 Route::middleware([AuthorizedMiddleware::class])->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout'); 
     Route::post('/like', LikeController::class)->name('article.like');
-    Route::post('/comment', CommentController::class)->name('article.comment');ф
+    Route::post('/comment', CommentController::class)->name('article.comment');
 });
 
 Route::middleware([AuthorizedMiddleware::class, AdminMiddleware::class])->group(function () {

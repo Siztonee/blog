@@ -16,7 +16,7 @@
 
         @include('layouts.app-header')
 
-        <main class="container mx-auto mt-8 px-4">
+        <main class="container mx-auto mt-8 px-4 transition-padding duration-300">
             @yield('content')
         </main>
 
@@ -25,6 +25,7 @@
 
     </body>
 
+    <script src="{{ asset('js/nav.js') }}"></script>
     @stack('scripts')
 
 </html>

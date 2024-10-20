@@ -26,7 +26,7 @@
             <div>
                 <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
                     <span class="font-medium">{{ $paginator->total() }}</span>
-                    {!! __('комментариев') !!}
+                    {!! __('результатов') !!}
                 </p>
             </div>
 

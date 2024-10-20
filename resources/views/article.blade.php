@@ -41,14 +41,13 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <span class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</span>
-                    <span class="text-sm text-gray-500">#{{ $loop->iteration }}</span>
                 </div>
             </div>
             <p class="text-gray-700 leading-relaxed">{{ $comment->comment }}</p>
         </div>
     @empty
         <div class="bg-white shadow rounded-lg p-6 mb-4">
-            <p>Пока нет комментариев</p>
+            <p>Комментариев пока нет.</p>
         </div>
     @endforelse
 
@@ -66,5 +65,5 @@
 
 @push('scripts')
     <script src="{{ asset('js/like-ajax.js') }}"></script>
-    <script src="{{ asset('js/comment-ajax.js') }}"></script>
+    <script src="{{ asset('js/comment-ajax.js?v=2.0.8') }}"></script>
 @endpush

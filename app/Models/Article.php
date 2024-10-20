@@ -6,9 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'creator_id',
         'title',
@@ -24,11 +27,9 @@ class Article extends Model
 
     public static function createUniqueSlug($title, $id = 0)
     {
-        // Генерация базового slug
         $slug = Str::slug($title);
         $originalSlug = $slug;
 
-        // Проверка на существование slug
         $i = 1;
         while (static::where('slug', $slug)->where('id', '<>', $id)->exists()) {
             $slug = $originalSlug . '-' . $i;
